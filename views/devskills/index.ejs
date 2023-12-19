@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<h3>Dev-Skills as of: <%= time %></h3>
+
+<ul>
+    <% devskills.forEach(function(d) { %>
+        <li>
+            <form
+            action="/devskills/<%= d.id %>?_method=DELETE"
+            method="POST"
+            class="delete-form"
+            >
+            <button type ="submit">X<</button>
+            </form>
+            <a href="/devskills/<%= d.id%>"><%= d.devskill %></a>
+            - 
+            <%= d.fluent ? 'fluent' : 'not fluent' %>
+        </li>
+        <% }); %>
+    </ul>
+    <a href ="/devskills/new">Add Dev-Skill</a>
+
+    <%- include('../partials/footer') %>
